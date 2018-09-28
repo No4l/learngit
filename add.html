@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            admin
+        </title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+            <!-- Bootstrap -->
+            <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+                <link href="/static/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+                <link href="/static/favicon.ico" rel="icon" type="image/x-icon">
+                    <style>
+                        .main{
+            margin-top:60px;
+        }
+                    </style>
+                </link>
+            </link>
+        </meta>
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="nagivation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                        <span class="sr-only">
+                            Toggle navigation
+                        </span>
+                        <span class="icon-bar">
+                        </span>
+                        <span class="icon-bar">
+                        </span>
+                        <span class="icon-bar">
+                        </span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        设备管理
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav pull-right">
+                        <li>
+                            <a href="#">
+                                admin
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                退出
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid main">
+            <div class="row">
+                <div class="col-md-2">
+                    <ul class="nav nav-tabs nav-stacked" id="main-nav" style="">
+                        <li class="active">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-th-large">
+                                </i>
+                                首页
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-header collapsed" data-toggle="collapse" href="#device">
+                                <i class="glyphicon glyphicon-folder-open">
+                                </i>
+                                资产分类
+                                <span class="pull-right glyphicon glyphicon-chevron-down">
+                                </span>
+                            </a>
+                            <ul class="nav nav-list collapse secondmenu" id="device" style="height: 0px;">
+                                <li>
+                                    <a href="./devices">
+                                        <i class="glyphicon glyphicon-hdd">
+                                        </i>
+                                        全部资产
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./device">
+                                        <i class="glyphicon glyphicon-modal-window">
+                                        </i>
+                                        设备
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./jiaju">
+                                        <i class="glyphicon glyphicon-bed">
+                                        </i>
+                                        家具
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./dizhi">
+                                        <i class="glyphicon glyphicon-edit">
+                                        </i>
+                                        低值
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-header collapsed" data-toggle="collapse" href="#manage">
+                                <i class="glyphicon glyphicon-credit-card">
+                                </i>
+                                资产管理
+                                <span class="pull-right glyphicon glyphicon-chevron-down">
+                                </span>
+                            </a>
+                            <ul class="nav nav-list collapse secondmenu" id="manage" style="height: 0px;">
+                                <li>
+                                    <a href="#">
+                                        <i class="glyphicon glyphicon-yen">
+                                        </i>
+                                        增加资产
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-user">
+                                </i>
+                                用户管理
+                                <span class="label label-info pull-right">
+                                    1
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-fire">
+                                </i>
+                                关于系统
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-10">
+                    <div>
+                        <ol class="breadcrumb">
+                            <li>
+                                <span class="glyphicon glyphicon-home">
+                                </span>
+                                <a href="#">
+                                    主页
+                                </a>
+                            </li>
+                            <li class="active">
+                            </li>
+                        </ol>
+                    </div>
+                    <!--操作失败-->
+                    <div class="alert alert-danger alert-dismissable fade in">
+                        <button aria-hidden="true" class="close" data-dismiss="alert" type="button">
+                            ×
+                        </button>
+                        操作失败
+                    </div>
+                    <!--操作成功-->
+                    <div class="alert alert-success alert-dismissable fade in">
+                        <button aria-hidden="true" class="close" data-dismiss="alert" type="button">
+                            ×
+                        </button>
+                        操作成功
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                全部资产
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form id="form" action="./add.html" method="POST">
+                            <table class="table table-border table-bordered table-bg table-hover">
+                                <tr>
+                                    <th width="200">
+                                        资产类型
+                                    </th>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>
+                                                设备
+                                            </option>
+                                            <option>
+                                                家具
+                                            </option>
+                                            <option>
+                                                低值
+                                            </option>
+                                            <option>
+                                                未定
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        科室实验室
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        资产编号
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        资产名称
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        型号
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        规格
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        单价
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        单台附件总额
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        附件数量
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        数量
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        附件数量
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        计量单位
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        总金额
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        购置日期
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="date" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        生产厂家
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        存放地
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        保管人
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        保管人_新
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        资产状况
+                                    </th>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>
+                                                有账有物在用
+                                            </option>
+                                            <option>
+                                                有帐有物待报废
+                                            </option>
+                                            <option>
+                                                有账无物待匹配
+                                            </option>
+                                            <option>
+                                                有账无物已匹配
+                                            </option>
+                                            <option>
+                                                有账无物待报废
+                                            </option>
+                                             <option>
+                                                以拉走未销账
+                                            </option>
+                                            <option>
+                                                在用待匹配
+                                            </option>
+                                            <option>
+                                                无用待匹配
+                                            </option>
+                                            <option>
+                                                待落实
+                                            </option>
+                                            <option>
+                                                未定
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th width="200">
+                                        存放地点
+                                    </th>
+                                    <td>
+                                        <input class="input-sm form-control" id="test" name="test" type="text" value=""/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="pull-right">
+                                <button class="btn btn-default" data-dismiss="modal" type="reset" onclick="reset();">
+                                    重置
+                                </button>
+                                <button class="btn btn-primary" type="submit">
+                                    增加
+                                </button>
+                            </div>
+                        </form>
+                            <script type="text/javascript">
+                                function reset(){
+                                    document.getElementsById('form').reset();
+
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+        </script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js">
+        </script>
+    </body>
+</html>
